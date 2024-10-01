@@ -1,0 +1,16 @@
+class ex;
+  rand int a[10];
+  
+  constraint pattern{foreach(a[i]){
+    a[i] == (i+2)/2;
+  }
+                    }
+ endclass
+                                      
+module tb;
+  initial begin
+    ex e = new();
+    e.randomize();
+    $write("pattern : %p", e.a);
+  end
+endmodule
