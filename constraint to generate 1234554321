@@ -1,0 +1,28 @@
+class ex;
+  rand bit [3:0] a[10];
+  rand int que[$];
+  constraint que_size{que.size() == 5;}
+  constraint pattern{foreach(a[i]){
+    if(i < 5){
+      a[i] == i + 1;
+    }
+  }
+  }
+function void post_randomize();
+  for(int i = 0; i < 10; i++) begin
+    if(i < 5)
+      que.push_back(a[i]);
+     else
+      a[i] = que.pop_back();
+   end
+endfunction             
+endclass
+                                       
+module tb;
+  initial begin
+    ex e = new();
+    e.randomize();
+    $write("pattern : %p", e.a);
+  end
+endmodule
+                  
