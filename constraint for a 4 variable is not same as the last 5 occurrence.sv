@@ -1,6 +1,6 @@
 class ex;
-  rand bit [3:0] a;
-  int que[$:7];
+  rand bit [4:0] a;
+  int que[$:15];
   constraint pattern{!(a inside{que});}
   function void post_randomize();
     que.push_front(a);
