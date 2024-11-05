@@ -3,8 +3,8 @@ class ex;
   
   constraint pattern{foreach(a[i]){
     foreach(a[i][j]){
-      if(i < 1 && j < 5) a[i][j]%2 == 0;
-    else a[i][j]%2 != 0;
+      if(i < 1 && j < 5) a[i][j]%2 == 0; //// Even numbers in the first row
+      else a[i][j]%2 != 0; // Odd numbers in the second row
                      }
                     }
   }
